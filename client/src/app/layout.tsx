@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { raleway }       from '@c/fonts'
 
 export const metadata: Metadata = {
   title: 'crazyTest',
@@ -10,12 +8,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+} : {
   children: React.ReactNode
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={raleway.className}>
+        { children }
+      </body>
     </html>
   )
 }
