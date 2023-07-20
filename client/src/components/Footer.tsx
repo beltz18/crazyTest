@@ -45,12 +45,12 @@ const MyFooter = ({ font }: any) => {
             </ul>
           </div>
           <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <span className="block text-sm sm:text-center text-white">
-            © 2023 &nbsp;
+          <span className="block text-sm text-center text-white">
+            Created by&nbsp;
             <Link href="https://tidv.tech/AndiDev" className="hover:underline text-gray-400" target='_blank'>
               Andi Dev
             </Link>.&nbsp;
-            All Rights Reserved.
+            2023 &nbsp;
           </span>
         </div>
       </footer>

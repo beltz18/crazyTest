@@ -10,10 +10,10 @@ import { raleway } from '@c/fonts'
 const Dashboard = () => {
   return (
     <>
-      <MyHead title="crazyTest"  />
-      <MyNavbar font={ raleway } />
-      <MyFeed   font={ raleway } />
-      <MyFooter font={ raleway } />
+      <MyHead title="crazyTest - Home"       />
+      <MyNavbar font={ raleway } page='home' />
+      <MyFeed   font={ raleway }             />
+      <MyFooter font={ raleway }             />
     </>
   )
 }
