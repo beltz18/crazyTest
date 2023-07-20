@@ -25,7 +25,7 @@ class User {
 
   async getUser () {
     return await jsonfile.readFile(this.file)
-      .then((res) => { return res.find(({ email }) => email === this.user.email ) })
+      .then((res)  => { return res.find(({ email }) => email === this.user.email ) })
       .catch((err) => { return new Error(this.err(err,500)) })
   }
 
@@ -44,7 +44,7 @@ class User {
         await d.push(this.user)
   
         return await jsonfile.writeFile(this.file, d, { spaces: 2, EOL: '\r\n' })
-          .then(() =>  { resolve(this.msg('created', 201)) })
+          .then(()   => { resolve(this.msg('created', 201)) })
           .catch(err => { reject(new Error(this.err(err,500))) })
       })
     })

@@ -21,7 +21,27 @@ class Product {
     }
   }
 
-  async new () {
+  async getPrd (prop) {
+    return await jsonfile.readFile(this.file)
+      .then((res)  => { return res.find((prod) => prod[prop] === this.prod[prop] ) })
+      .catch((err) => { return new Error(this.err(err,500)) })
+  }
+
+  async getAll () {
+    return await jsonfile.readFile(this.file)
+      .then((res)  => { return res })
+      .catch((err) => { return new Error(this.err(err,500)) })
+  }
+
+  async newPrd () {
+    const prd = await this.getPrd('name')
+    if (prd) {
+      return {
+        message: 'Product already registered',
+        status: 500
+      }
+    }
+
     const prodId    = crypto.randomUUID()
     this.prod['id'] = prodId
 
@@ -31,13 +51,11 @@ class Product {
         await d.push(this.prod)
   
         return await jsonfile.writeFile(this.file, d, { spaces: 2, EOL: '\r\n' })
-          .then(() =>  { resolve(this.msg('created', 201)) })
+          .then(()   => { resolve(this.msg('created', 201)) })
           .catch(err => { reject(new Error(this.err(err,500))) })
       })
     })
   }
-
-  async get () {}
 
   async filter () {}
 }
