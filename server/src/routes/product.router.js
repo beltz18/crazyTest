@@ -3,6 +3,12 @@ import Product    from '../controllers/product.controller.js'
 
 const productRouter = Router()
 
+productRouter.get('/product/get', async (req,res) => {
+  const create = new Product()
+  const resp   = await create.getAll()
+  res.json(resp)
+})
+
 productRouter.get('/product/get/:id', async (req, res) => {
   const { id } = req.params
   const create = new Product({ id })
@@ -15,10 +21,11 @@ productRouter.get('/product/get/:id', async (req, res) => {
   })
 })
 
-productRouter.get('/product/filter', async (req, res) => {
-  res.json({
-    message: 'lalala'
-  })
+productRouter.post('/product/filter', async (req, res) => {
+  const { filter } = req.body
+  const create     = new Product()
+  const resp       = await create.filter(filter)
+  res.json(resp)
 })
 
 productRouter.post('/product/new', async (req, res) => {

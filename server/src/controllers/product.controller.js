@@ -4,7 +4,7 @@ import crypto   from 'crypto'
 const file = process.cwd()+'/global/data/product.json'
 
 class Product {
-  constructor (product) {
+  constructor (product = {}) {
     this.file = file
     this.prod = product
     this.err  = (e,s) => {
@@ -57,7 +57,16 @@ class Product {
     })
   }
 
-  async filter () {}
+  async filter ({name, category, price}) {
+    return await jsonfile.readFile(this.file)
+      .then((res)  => {
+        return res.filter((prd) => {
+          prd.category == category
+          console.log(prd.category == category)
+        })
+      })
+      .catch((err) => { return new Error(this.err(err,500)) })
+  }
 }
 
 export default Product
