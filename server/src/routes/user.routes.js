@@ -3,11 +3,17 @@ import User       from '../controllers/user.controller.js'
 
 const userRouter = Router()
 
-userRouter.post('/user/register', (req,res) => {
+userRouter.post('/user/register', async (req,res) => {
   const { user } = req.body
   const create   = new User(user)
-  const resp     = create.creUser()
+  const resp     = await create.regUser()
+  res.json(resp)
+})
 
+userRouter.post('/user/login', async (req,res) => {
+  const { user } = req.body
+  const create   = new User(user)
+  const resp     = await create.logUser()
   res.json(resp)
 })
 
