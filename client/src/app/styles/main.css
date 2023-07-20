@@ -8,9 +8,7 @@
   box-sizing: border-box;
 }
 
-body {
-  height: 100vh;
-}
+body, .body { min-height: 90vh; }
 
 h1 {
   font-size: 40px;
