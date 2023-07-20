@@ -1,4 +1,5 @@
 import jsonfile from 'jsonfile'
+import bcrypt   from 'bcrypt'
 
 const file = process.cwd()+'/global/data/user.json'
 
@@ -50,10 +51,18 @@ class User {
   async logUser () {
     const user = await this.getUser()
     if (user) {
-      return {
-        message: 'user authenticated successfully',
-        status: 200,
-        data: user
+      const compared = await bcrypt.compare(this.user.password, user.password)
+      if (compared) {
+        return {
+          message: 'user authenticated successfully',
+          status: 200,
+          data: user
+        }
+      } else {
+        return {
+          message: 'Incorrect password',
+          status: 200
+        }
       }
     } else {
       return {

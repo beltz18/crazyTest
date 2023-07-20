@@ -1,10 +1,12 @@
 import { Router } from 'express'
+import bcrypt     from 'bcrypt'
 import User       from '../controllers/user.controller.js'
 
 const userRouter = Router()
 
 userRouter.post('/user/register', async (req,res) => {
   const { user } = req.body
+  user.password  = await bcrypt.hash(user.password, 10)
   const create   = new User(user)
   const resp     = await create.regUser()
   res.json(resp)
