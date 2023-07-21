@@ -46,7 +46,7 @@ const ProductForm = ({ font }: any) => {
     <>
       <div className='min-h-screen bg-gray-500 py-6 flex flex-col justify-center xs:py-12'>
         <ToastContainer />
-        <div className='relative py-3 sm:max-w-xl sm:mx-auto content'>
+        <div className='relative py-32 sm:max-w-xl sm:mx-auto content'>
           <div className={font.className+" relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20"}>
             <div>
               <h1 className="text-2xlg font-semibold text-center">New product</h1>
