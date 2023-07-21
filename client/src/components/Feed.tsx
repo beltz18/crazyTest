@@ -1,5 +1,6 @@
 import React from 'react'
 import Link  from 'next/link'
+import Image from 'next/image'
 
 const MyFeed = ({ font }: any) => {
   const imgProducts = [
@@ -25,11 +26,13 @@ const MyFeed = ({ font }: any) => {
             <div className='flex justify-center items-center' key={ img }>
               <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div>
-                  <Link href="#">
-                    <img
+                  <Link href="#" className='flex justify-center items-center'>
+                    <Image
                       className="p-8 rounded-t-lg"
                       src={ img }
                       alt="product image"
+                      width="350"
+                      height="350"
                     />
                   </Link>
                   <div className="px-5 pb-5">

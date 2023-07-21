@@ -1,6 +1,7 @@
 import '@s/main.css'
 
 import React       from 'react'
+import Image       from 'next/image'
 import MyHead      from '@c/MyHead'
 import MyNavbar    from '@c/Navbar'
 import MyFooter    from '@c/Footer'
@@ -22,7 +23,13 @@ const Cart = () => {
               <li className="py-3 sm:py-4">
                 <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0">
-                    <img className="w-8 h-8 rounded-full" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="Neil image" />
+                    <Image
+                      className="rounded-full"
+                      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
+                      alt="Neil image"
+                      width="30"
+                      height="30"
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -43,7 +50,13 @@ const Cart = () => {
               <li className="py-3 sm:py-4">
                 <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0">
-                    <img className="w-8 h-8 rounded-full" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="Neil image" />
+                    <Image
+                      className="rounded-full"
+                      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
+                      alt="Neil image"
+                      width="30"
+                      height="30"
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-900 truncate dark:text-white">

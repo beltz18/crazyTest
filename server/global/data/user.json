@@ -1,3 +1,8 @@
 [
-  
+  {
+    "name": "Administrator",
+    "email": "admin@admin.co",
+    "password": "$2b$10$DeJ8cVDCLiJXBRJeg3T11eF47UEplazn839XOpBAdFGL62B1tDN/O",
+    "access": "user"
+  }
 ]

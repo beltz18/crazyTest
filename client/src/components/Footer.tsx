@@ -1,5 +1,6 @@
 import React from 'react'
 import Link  from 'next/link'
+import Image from 'next/image'
 
 const MyFooter = ({ font }: any) => {
   const links = [
@@ -26,10 +27,16 @@ const MyFooter = ({ font }: any) => {
       <footer className={font.className+" bg-gray-800 w-full shadow dark:bg-white"}>
         <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
           <div className="sm:flex sm:items-center sm:justify-between">
-            <a href="/dashboard" className="flex items-center mb-4 sm:mb-0">
-              <img src="./andi-dev-logo.png" className="h-10 mr-3 rounded-full" alt="Flowbite Logo" />
+            <Link href="/dashboard" className="flex items-center mb-4 sm:mb-0">
+              <Image
+                src="/andi-dev-logo.png"
+                className="mr-3 rounded-full"
+                alt="Flowbite Logo"
+                width="50"
+                height="50"
+              />
               <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Crazy shop</span>
-            </a>
+            </Link>
             <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
               { links.map(({ name, url }) => (
                 <li key={ name }>
