@@ -1,9 +1,12 @@
 import React from 'react'
 import Link  from 'next/link'
 import Image from 'next/image'
-import Router from 'next/router'
 
 const MyNavbar = ({ font, page }: any) => {
+  const logout = () => {
+    localStorage.clear()
+  }
+
   return (
     <>
       <nav className={font.className+" bg-gray-800 dark:bg-white text-white fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600 mb-10"}>
@@ -16,7 +19,7 @@ const MyNavbar = ({ font, page }: any) => {
               width="50"
               height="50"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white" onClick={() => { Router.replace('/login') }}>Crazy Shop</span>
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Crazy Shop</span>
           </Link>
           
           <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -38,7 +41,7 @@ const MyNavbar = ({ font, page }: any) => {
                 <span className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">User</span>
               </li>
               <li key="logout">
-                <Link href="/login" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Log Out</Link>
+                <Link href="/login" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={ logout }>Log Out</Link>
               </li>
             </ul>
           </div>

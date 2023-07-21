@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { raleway }       from '@c/fonts'
 
 export const metadata: Metadata = {
-  title: 'crazyTest',
-  description: 'Test for Crazy Imagine Dev',
+  title: 'Crazy Shop',
+  description: 'E-Commerce test for Crazy Imagine Dev application - Developed by Andi Dev',
 }
 
 export default function RootLayout({

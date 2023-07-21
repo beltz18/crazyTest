@@ -7,6 +7,7 @@ import { redirect }              from 'next/navigation'
 import { Button, TextInput }     from 'flowbite-react'
 import { ToastContainer, toast } from 'react-toastify'
 import { useEffect, useState }   from 'react'
+import { Login }                 from '@r/types/types'
 
 const LoginPage = () => {
   const [redir, setRedir] = useState(false)
@@ -15,22 +16,26 @@ const LoginPage = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
-    const user = {
-      user: {
-        email: e.target[0].value,
-        password: e.target[1].value
-      }
+    const user: Login = {
+      email:    e.target[0].value,
+      password: e.target[1].value
     }
+    const body = { user }
 
     const post = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}${process.env.NEXT_PUBLIC_USER_LOG}`, {
       method: 'POST',
       mode: 'cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(user),
+      body: JSON.stringify(body),
     })
+
     const res  = await post.json()
     if (res.status != 200) notifyError(res.message)
-    else setRedir(true)
+    else {
+      localStorage.setItem("token", res.token)
+      localStorage.setItem("access", res.access)
+      setRedir(true)
+    }
   }
 
   useEffect(() => { if (redir) redirect('/dashboard') }, [redir])

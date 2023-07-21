@@ -1,8 +1,9 @@
 [
   {
+    "id": "d0d4d820-2b42-4b60-b413-0b7dd3233f0a",
     "name": "Administrator",
     "email": "admin@admin.co",
-    "password": "$2b$10$DeJ8cVDCLiJXBRJeg3T11eF47UEplazn839XOpBAdFGL62B1tDN/O",
-    "access": "user"
+    "password": "$2b$10$iLnSCgqImnMJhxZt8D0TGu0BngC.2pfIQm7a1QeHETbtHKR44nrA2",
+    "access": "admin"
   }
 ]

@@ -7,6 +7,7 @@ import { redirect }              from 'next/navigation'
 import { Button, TextInput }     from 'flowbite-react'
 import { ToastContainer, toast } from 'react-toastify'
 import { useEffect, useState }   from 'react'
+import { Register }              from '@r/types/types'
 
 const RegisterPage = () => {
   const [redir, setRedir] = useState(false)
@@ -17,22 +18,22 @@ const RegisterPage = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
-    const user = {
-      user: {
-        name: e.target[0].value,
-        email: e.target[1].value,
-        password: e.target[2].value,
-        access: "user"
-      }
+    const user: Register = {
+      id:       crypto.randomUUID(),
+      name:     e.target[0].value,
+      email:    e.target[1].value,
+      password: e.target[2].value,
+      access:   "user"
     }
+    const body = { user }
 
-    if(!user.user.email.match(regexEmail)) notifyError(`
+    if(!user.email.match(regexEmail)) notifyError(`
       The email cannot:
       start or finish with a dot, contain spaces into
       the string or contain special chars (<:, *, etc).
     `)
 
-    else if(!user.user.password.match(regexPass)) notifyError(`
+    else if(!user.password.match(regexPass)) notifyError(`
       Password must be 8-16 characters with no space
       and contain: 1 number, 1 uppercase letter, 1
       lowercase letter and 1 non-alpha numeric number.
@@ -43,7 +44,7 @@ const RegisterPage = () => {
         method: 'POST',
         mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user),
+        body: JSON.stringify(body),
       })
       const res  = await post.json()
       if (res.status != 201) notifyError(res.message)

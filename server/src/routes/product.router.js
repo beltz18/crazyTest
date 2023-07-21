@@ -30,6 +30,7 @@ productRouter.post('/product/filter', async (req, res) => {
 
 productRouter.post('/product/new', async (req, res) => {
   const { product } = req.body
+  console.log(product)
   const create      = new Product(product)
   const resp        = await create.newPrd()
   res.json(resp)

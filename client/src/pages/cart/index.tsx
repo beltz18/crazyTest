@@ -10,7 +10,7 @@ import { raleway } from '@c/fonts'
 const Cart = () => {
   return (
     <>
-      <MyHead title="crazyTest - Cart" />
+      <MyHead title="Crazy Shop - Cart" />
       <MyNavbar font={ raleway } page='cart' />
 
       <div className='flex justify-center items-center body p-6'>

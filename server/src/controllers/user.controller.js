@@ -60,7 +60,8 @@ class User {
         return {
           message: 'user authenticated successfully',
           status: 200,
-          token
+          token,
+          access: user.access
         }
       } else {
         return {
