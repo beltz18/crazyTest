@@ -1,3 +1,83 @@
 [
-  
+  {
+    "id": "4c26ebf9-e02f-4e20-ae65-2c452c814026",
+    "name": "ReDragon K4552-2 Keyboard",
+    "price": "85",
+    "quantity": "5",
+    "description": "Gaming LED Keyboard",
+    "category": "Technology",
+    "img": "https://res.cloudinary.com/dbd2m1h7r/image/upload/v1689965182/crazyShop_uploads/gvil9j14bgrfujoljpgd.jpg"
+  },
+  {
+    "id": "f3dc1c91-3f37-4ed0-b36a-0162784b4bf4",
+    "name": "UNO Cards Game",
+    "price": "10",
+    "quantity": "15",
+    "description": "Cards Game",
+    "category": "Entertainment",
+    "img": "https://res.cloudinary.com/dbd2m1h7r/image/upload/v1689965294/crazyShop_uploads/pyznodptlm7bfgeprsa2.jpg"
+  },
+  {
+    "id": "fd691680-d64e-4c75-9cc7-cd5ca8a09f18",
+    "name": "Benelli TNT 600i",
+    "price": "8000",
+    "quantity": "3",
+    "description": "Motorbike",
+    "category": "Other",
+    "img": "https://res.cloudinary.com/dbd2m1h7r/image/upload/v1689965491/crazyShop_uploads/rn2qmc4gjkqreb1wcyk5.jpg"
+  },
+  {
+    "id": "d156bfec-6bb6-4e2b-bef7-06b6ae6afd08",
+    "name": "Nintendo Switch Pro",
+    "price": "500",
+    "quantity": "12",
+    "description": "Videogames Console",
+    "category": "Video Games",
+    "img": "https://res.cloudinary.com/dbd2m1h7r/image/upload/v1689965723/crazyShop_uploads/azw8tmsjzkd3qc6eiseg.webp"
+  },
+  {
+    "id": "6553a772-812f-4ee5-b03e-b1caadecac99",
+    "name": "Dell Alienware",
+    "price": "3800",
+    "quantity": "3",
+    "description": "Gaming Laptop",
+    "category": "Technology",
+    "img": "https://res.cloudinary.com/dbd2m1h7r/image/upload/v1689965786/crazyShop_uploads/yr8dv822iovmimy2h9ff.jpg"
+  },
+  {
+    "id": "b55bf605-95c1-41e4-88fd-5c49118fac80",
+    "name": "Apple Watch",
+    "price": "300",
+    "quantity": "3",
+    "description": "Watch",
+    "category": "Other",
+    "img": "https://res.cloudinary.com/dbd2m1h7r/image/upload/v1689965820/crazyShop_uploads/ekk9n2qvzle195mus5eo.jpg"
+  },
+  {
+    "id": "4a0ca8db-2745-47d7-81f7-04199790aa4f",
+    "name": "Videogames Controller",
+    "price": "30",
+    "quantity": "50",
+    "description": "Controller",
+    "category": "Video Games",
+    "img": "https://res.cloudinary.com/dbd2m1h7r/image/upload/v1689965870/crazyShop_uploads/mk8jdlscq7qmkotdiopk.webp"
+  },
+  {
+    "id": "ff16c56f-470b-499f-88bd-4028e3962f53",
+    "name": "Sport Shoes",
+    "price": "25",
+    "quantity": "80",
+    "description": "Shoes",
+    "category": "Other",
+    "img": "https://res.cloudinary.com/dbd2m1h7r/image/upload/v1689965907/crazyShop_uploads/epzzaxvp6cnt6odhhycv.webp"
+  },
+  {
+    "id": "66b578d0-39f4-4615-8bf8-345b43c65968",
+    "name": "Nintendo DSi",
+    "price": "40",
+    "quantity": "9",
+    "description": "Videogame Console",
+    "category": "Video Games",
+    "img": "https://res.cloudinary.com/dbd2m1h7r/image/upload/v1689967944/crazyShop_uploads/iqyrlmnyho9phoaci2ac.jpg"
+  }
 ]

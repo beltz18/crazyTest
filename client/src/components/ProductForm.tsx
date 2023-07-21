@@ -38,7 +38,10 @@ const ProductForm = ({ font }: any) => {
       body: JSON.stringify(body)
     }).then(res => res.json())
     
-    if (newPrd.status == 201) notifySuccess(newPrd.message) 
+    if (newPrd.status == 201) { 
+      notifySuccess(newPrd.message)
+      e.target.reset()
+    } 
     else notifyError(newPrd.message) 
   }
 
@@ -52,7 +55,7 @@ const ProductForm = ({ font }: any) => {
               <h1 className="text-2xlg font-semibold text-center">New product</h1>
             </div>
             <div className="divide-y divide-gray-200 my-10">
-              <form onSubmit={ handleSubmit }>
+              <form id='form' onSubmit={ handleSubmit }>
                 <div className="mb-6">
                   <input type="text" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Product name" required />
                 </div>

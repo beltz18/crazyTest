@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'flowbite.s3.amazonaws.com',
+        hostname: 'res.cloudinary.com',
       },
     ],
   },
