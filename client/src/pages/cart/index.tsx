@@ -1,17 +1,23 @@
 import '@s/main.css'
 
-import React       from 'react'
-import Image       from 'next/image'
-import MyHead      from '@c/MyHead'
-import MyNavbar    from '@c/Navbar'
-import MyFooter    from '@c/Footer'
-import { raleway } from '@c/fonts'
+import React         from 'react'
+import Image         from 'next/image'
+import MyHead        from '@c/MyHead'
+import MyNavbar      from '@c/Navbar'
+import MyFooter      from '@c/Footer'
+import { raleway }   from '@c/fonts'
+import { getCookie } from '@r/components/cookies'
 
-const Cart = () => {
+const Cart = ({ name, access }: any) => {
   return (
     <>
       <MyHead title="Crazy Shop - Cart" />
-      <MyNavbar font={ raleway } page='cart' />
+      <MyNavbar
+        font={ raleway }
+        name={ name }
+        access={ access }
+        page='cart'
+      />
 
       <div className='flex justify-center items-center body p-6'>
         <div className="w-full h-full max-w-3xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
@@ -23,13 +29,13 @@ const Cart = () => {
               <li className="py-3 sm:py-4">
                 <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0">
-                    <Image
+                    {/* <Image
                       className="rounded-full"
                       src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
                       alt="Neil image"
                       width="30"
                       height="30"
-                    />
+                    /> */}
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -50,13 +56,13 @@ const Cart = () => {
               <li className="py-3 sm:py-4">
                 <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0">
-                    <Image
+                    {/* <Image
                       className="rounded-full"
                       src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
                       alt="Neil image"
                       width="30"
                       height="30"
-                    />
+                    /> */}
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -90,3 +96,25 @@ const Cart = () => {
 }
 
 export default Cart
+
+export async function getServerSideProps ({ req }: any) {
+  const token    = getCookie('token', req)
+  const name     = getCookie('name', req)
+  const access   = getCookie('access', req)
+
+  if (typeof token == 'undefined') {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      }
+    }
+  }
+
+  return {
+    props: {
+      name: name,
+      access: access
+    }
+  }
+}

@@ -8,6 +8,7 @@ import { Button, TextInput }     from 'flowbite-react'
 import { ToastContainer, toast } from 'react-toastify'
 import { useEffect, useState }   from 'react'
 import { Login }                 from '@r/types/types'
+import { setCookie }             from '@c/cookies'
 
 const LoginPage = () => {
   const [redir, setRedir] = useState(false)
@@ -32,6 +33,9 @@ const LoginPage = () => {
     const res  = await post.json()
     if (res.status != 200) notifyError(res.message)
     else {
+      setCookie('token',  res.token)
+      setCookie('name',   res.name)
+      setCookie('access', res.access)
       setRedir(true)
     }
   }
