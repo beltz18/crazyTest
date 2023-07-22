@@ -37,25 +37,25 @@ const MyNavbar = ({ font, page, email, access }: any) => {
           <div className={`${!showNav ? "hidden" : ""} w-full md:block md:w-auto`}>
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-800 md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-white">
               <li key="home">
-                <Link href="/" className="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</Link>
+                <Link href="/" className="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" title=':)'>Home</Link>
               </li>
               <li key="dash">
-                <Link href="/dashboard" className={`block py-2 pl-3 pr-4 ${page == 'home' ? "text-blue-500" : "text-white"} rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`}>Dashboard</Link>
+                <Link href="/dashboard" className={`block py-2 pl-3 pr-4 ${page == 'home' ? "text-blue-500" : "text-white"} rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`} title='Go to dashboard'>Dashboard</Link>
               </li>
               <li key="cart">
-                <Link href="/cart" className={`block py-2 pl-3 pr-4 ${page == 'cart' ? "text-blue-500" : "text-white"} rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`}>Cart</Link>
+                <Link href="/cart" className={`block py-2 pl-3 pr-4 ${page == 'cart' ? "text-blue-500" : "text-white"} rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`} title='Your cart'>Cart</Link>
               </li>
               <li key="user">
                 {
                   access == 'admin'
                     ?
-                  <Link href="/admin" className={`block py-2 pl-3 pr-4 ${page == 'admin' ? "text-blue-500" : "text-white"} rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`}>{ email }</Link>
+                  <Link href="/admin" className={`block py-2 pl-3 pr-4 ${page == 'admin' ? "text-blue-500" : "text-white"} rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`} title='Press here to register new products'>{ email }</Link>
                     :
-                  <span className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">{ email }</span>
+                  <span className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" title='Your email'>{ email }</span>
                 }
               </li>
               <li key="logout">
-                <Link href="/login" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={ logout }>Log Out</Link>
+                <Link href="/login" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={ logout } title='Log out'>Log Out</Link>
               </li>
             </ul>
           </div>

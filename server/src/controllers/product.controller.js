@@ -57,15 +57,16 @@ class Product {
     })
   }
 
-  async filter ({name, category, price}) {
-    return await jsonfile.readFile(this.file)
-      .then((res)  => {
-        return res.filter((prd) => {
-          prd.category == category
-          console.log(prd.category == category)
-        })
-      })
+  async filter ({ name, price, category }) {
+    let data = await jsonfile.readFile(this.file)
+      .then((res)  => { return res })
       .catch((err) => { return new Error(this.err(err,500)) })
+
+    if (name != "")     data = data.filter((product) => product.name.toLowerCase().includes(name.toLowerCase()))
+    if (price != "")    data = data.filter((product) => product.price <= price)
+    if (category != "") data = data.filter((product) => product.category === category)
+
+    return data
   }
 }
 
