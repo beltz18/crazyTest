@@ -8,13 +8,13 @@ import MyFooter      from '@r/components/Footer'
 import { raleway }   from '@c/fonts'
 import { getCookie } from '@r/components/cookies'
 
-const Dashboard = ({ products, name, access }: any) => {
+const Dashboard = ({ products, email, access }: any) => {
   return (
     <>
       <MyHead title="Crazy Shop - Home" />
       <MyNavbar
         font={ raleway }
-        name={ name }
+        email={ email }
         access={ access }
         page='home'
       />
@@ -31,7 +31,7 @@ export default Dashboard
 
 export async function getServerSideProps ({ req }: any) {
   const token    = getCookie('token', req)
-  const name     = getCookie('name', req)
+  const email    = getCookie('email', req)
   const access   = getCookie('access', req)
 
   const products = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}${process.env.NEXT_PUBLIC_PRODUCT_GET}`)
@@ -50,7 +50,7 @@ export async function getServerSideProps ({ req }: any) {
   return {
     props: {
       products: products,
-      name: name,
+      email: email,
       access: access
     }
   }

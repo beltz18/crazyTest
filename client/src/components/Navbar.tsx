@@ -3,12 +3,12 @@ import Link             from 'next/link'
 import Image            from 'next/image'
 import { removeCookie } from './cookies'
 
-const MyNavbar = ({ font, page, name, access }: any) => {
+const MyNavbar = ({ font, page, email, access }: any) => {
   const [showNav, setShowNav] = React.useState(false)
 
   const logout = () => {
     removeCookie('token')
-    removeCookie('name')
+    removeCookie('email')
     removeCookie('access')
   }
 
@@ -49,9 +49,9 @@ const MyNavbar = ({ font, page, name, access }: any) => {
                 {
                   access == 'admin'
                     ?
-                  <Link href="/admin" className={`block py-2 pl-3 pr-4 ${page == 'admin' ? "text-blue-500" : "text-white"} rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`}>{ name }</Link>
+                  <Link href="/admin" className={`block py-2 pl-3 pr-4 ${page == 'admin' ? "text-blue-500" : "text-white"} rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`}>{ email }</Link>
                     :
-                  <span className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">{ name }</span>
+                  <span className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">{ email }</span>
                 }
               </li>
               <li key="logout">

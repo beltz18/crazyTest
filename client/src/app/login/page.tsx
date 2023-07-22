@@ -34,7 +34,7 @@ const LoginPage = () => {
     if (res.status != 200) notifyError(res.message)
     else {
       setCookie('token',  res.token)
-      setCookie('name',   res.name)
+      setCookie('email',  res.email)
       setCookie('access', res.access)
       setRedir(true)
     }
