@@ -1,4 +1,5 @@
 import '@s/main.css'
+import 'react-toastify/dist/ReactToastify.css'
 
 import React         from 'react'
 import MyHead        from '@c/MyHead'
@@ -21,6 +22,7 @@ const Dashboard = ({ products, email, access }: any) => {
       <MyFeed
         font={ raleway }
         products={ products }
+        email={ email }
       />
       <MyFooter font={ raleway } />
     </>

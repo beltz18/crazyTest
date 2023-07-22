@@ -1,16 +1,31 @@
-import { useState } from 'react'
-import Image        from 'next/image'
-import Link         from 'next/link'
+import { useState }              from 'react'
+import Link                      from 'next/link'
+import Image                     from 'next/image'
+import { ToastContainer, toast } from 'react-toastify'
 
-const MyFeed = ({ font, products }: any) => {
+const MyFeed = ({ font, products, email }: any) => {
   const [product, setProduct]   = useState(products)
   const [name, setName]         = useState("")
   const [price, setPrice]       = useState(0)
   const [category, setCategory] = useState("")
 
+  const notifySuccess: any  = (msg: string) => toast.success(msg)
+  const notifyError:   any  = (msg: string) => toast.error(msg)
+
   const handleName     = (e: any) => { setName(e.target.value)      }
   const handleCategory = (e: any) => { setCategory(e.target.value)  }
   const handlePrice    = (e: any) => { setPrice(e.target.value | 0) }
+
+  const addToCart = async (id: any) => {
+    let data = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}${process.env.NEXT_PUBLIC_CART_ADD}`, {
+      method : "POST",
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, user: email })
+    }).then(res => res.json())
+    if (data.status == 201) notifySuccess(data.message)
+    else notifyError(data.message)
+  }
 
   const body: any = { filter: { name, price, category } }
 
@@ -26,6 +41,7 @@ const MyFeed = ({ font, products }: any) => {
 
   return (
     <>
+      <ToastContainer />
       <h1 className={font.className+' mx-10 lg:mx-60 mt-32'}>Filter</h1>
       <div className={font.className+" grid md:grid-cols-2 mx-10 lg:mx-60 my-5"}>
         <div className="relative z-0 w-full mb-6 group">
@@ -62,11 +78,11 @@ const MyFeed = ({ font, products }: any) => {
                 <option>Other</option>
               </select>
             </div>
-            <div className="relative z-0 w-full mx-5 group">
+            <div className="relative z-0 w-full mx-0 lg:mx-5 group">
               <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={ fetcher }>
                 Buscar
                 <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
               </button>
             </div>
@@ -96,7 +112,13 @@ const MyFeed = ({ font, products }: any) => {
                     </a>
                     <div className="flex items-center justify-between my-8">
                       <span className="text-3xl font-bold text-gray-900 dark:text-white">${ price }</span>
-                      <a href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+                      <Link
+                        href="#"
+                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        onClick={() => addToCart(id) }
+                      >
+                        Add to cart
+                      </Link>
                     </div>
                   </div>
                 </div>
