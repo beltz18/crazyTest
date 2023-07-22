@@ -6,7 +6,7 @@ const cartRouter = Router()
 
 cartRouter.post('/cart/add', async (req,res) => {
   const { id, user } = req.body
-  const prod = await (await axios.get(`http://localhost:4001/product/get/${id}`)).data
+  const prod = await (await axios.get(`${process.env.SERVER_URL}/product/get/${id}`)).data
   prod['user'] = user
   const create = new Cart(prod)
   const resp   = await create.addToCart()
