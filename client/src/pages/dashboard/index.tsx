@@ -1,13 +1,13 @@
 import '@s/main.css'
 
-import React        from 'react'
-import MyHead       from '@c/MyHead'
-import MyNavbar     from '@c/Navbar'
-import MyFeed       from '@c/Feed'
-import MyFooter     from '@r/components/Footer'
-import { raleway }  from '@c/fonts'
+import React       from 'react'
+import MyHead      from '@c/MyHead'
+import MyNavbar    from '@c/Navbar'
+import MyFeed      from '@c/Feed'
+import MyFooter    from '@r/components/Footer'
+import { raleway } from '@c/fonts'
 
-const Dashboard = ({ products }: any) => {  
+const Dashboard = ({ products }: any) => {
   return (
     <>
       <MyHead title="Crazy Shop - Home"                />

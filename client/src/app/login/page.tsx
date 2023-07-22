@@ -32,8 +32,6 @@ const LoginPage = () => {
     const res  = await post.json()
     if (res.status != 200) notifyError(res.message)
     else {
-      localStorage.setItem("token", res.token)
-      localStorage.setItem("access", res.access)
       setRedir(true)
     }
   }
