@@ -1,3 +1,22 @@
 [
-  
+  {
+    "id": "f3dc1c91-3f37-4ed0-b36a-0162784b4bf4",
+    "name": "UNO Cards Game",
+    "price": "10",
+    "quantity": "15",
+    "description": "Cards Game",
+    "category": "Entertainment",
+    "img": "https://res.cloudinary.com/dbd2m1h7r/image/upload/v1689965294/crazyShop_uploads/pyznodptlm7bfgeprsa2.jpg",
+    "user": "admin@admin.co"
+  },
+  {
+    "id": "fd691680-d64e-4c75-9cc7-cd5ca8a09f18",
+    "name": "Benelli TNT 600i",
+    "price": "8000",
+    "quantity": "3",
+    "description": "Motorbike",
+    "category": "Other",
+    "img": "https://res.cloudinary.com/dbd2m1h7r/image/upload/v1689965491/crazyShop_uploads/rn2qmc4gjkqreb1wcyk5.jpg",
+    "user": "admin@admin.co"
+  }
 ]

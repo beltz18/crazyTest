@@ -13,6 +13,13 @@ cartRouter.post('/cart/add', async (req,res) => {
   res.json(resp)
 })
 
+cartRouter.post('/cart/get', async (req,res) => {
+  const { user } = req.body
+  const create   = new Cart()
+  const resp     = await create.getCartData(user)
+  res.json(resp)
+})
+
 cartRouter.post('/cart/remove', async (req,res) => {
   const { id } = req.body
   const create = new Cart({}, id)

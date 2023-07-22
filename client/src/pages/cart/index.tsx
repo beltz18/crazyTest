@@ -8,7 +8,7 @@ import MyFooter      from '@c/Footer'
 import { raleway }   from '@c/fonts'
 import { getCookie } from '@r/components/cookies'
 
-const Cart = ({ email, access }: any) => {
+const Cart = ({ email, access, items }: any) => {
   return (
     <>
       <MyHead title="Crazy Shop - Cart" />
@@ -18,7 +18,7 @@ const Cart = ({ email, access }: any) => {
         access={ access }
         page='cart'
       />
-      <MyCart email={ email } />
+      <MyCart items={ items } />
       <MyFooter font={ raleway } />
     </>
   )
@@ -30,6 +30,14 @@ export async function getServerSideProps ({ req }: any) {
   const token    = getCookie('token', req)
   const email    = getCookie('email', req)
   const access   = getCookie('access', req)
+
+  const items = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}${process.env.NEXT_PUBLIC_CART_GET}`, {
+    method: 'POST',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ user: email })
+  })
+    .then(res => res.json())
 
   if (typeof token == 'undefined') {
     return {
@@ -43,7 +51,8 @@ export async function getServerSideProps ({ req }: any) {
   return {
     props: {
       email: email,
-      access: access
+      access: access,
+      items: items
     }
   }
 }

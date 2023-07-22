@@ -1,6 +1,9 @@
 import Image from 'next/image'
 
-const MyCart = ({ email }: any) => {
+const MyCart = ({ items }: any) => {
+  let total = 0
+  items.map(({price}: any) => total += parseInt(price))
+  
   return (
     <>
       <div className='flex justify-center items-center body p-6'>
@@ -10,65 +13,39 @@ const MyCart = ({ email }: any) => {
           </div>
           <div className="flow-root">
             <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
-              <li className="py-3 sm:py-4">
-                <div className="flex items-center space-x-4">
-                  <div className="flex-shrink-0">
-                    {/* <Image
-                      className="rounded-full"
-                      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
-                      alt="Neil image"
-                      width="30"
-                      height="30"
-                    /> */}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                      Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
-                    </p>
-                    <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Delectus dolore iste corrupti vero consectetur praesentium
-                      nihil earum ipsam! Repellendus, amet hic ab a id deleniti
-                      incidunt ad sint voluptate voluptas?
-                    </p>
-                  </div>
-                  <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    $120
-                  </div>
-                </div>
-              </li>
-              <li className="py-3 sm:py-4">
-                <div className="flex items-center space-x-4">
-                  <div className="flex-shrink-0">
-                    {/* <Image
-                      className="rounded-full"
-                      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-                      alt="Neil image"
-                      width="30"
-                      height="30"
-                    /> */}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                      Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
-                    </p>
-                    <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Delectus dolore iste corrupti vero consectetur praesentium
-                      nihil earum ipsam! Repellendus, amet hic ab a id deleniti
-                      incidunt ad sint voluptate voluptas?
-                    </p>
-                  </div>
-                  <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    $320
-                  </div>
-                </div>
-              </li>
+              {
+                items.map(({id, name, description, price, img, }: any) => (
+                  <li className="py-3 sm:py-4" key={ id }>
+                    <div className="flex items-center space-x-4">
+                      <div className="flex-shrink-0">
+                        <Image
+                          className="rounded-full"
+                          src={ img }
+                          alt={ name }
+                          width="30"
+                          height="30"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                          { name }
+                        </p>
+                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                          { description }
+                        </p>
+                      </div>
+                      <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        ${ price }
+                      </div>
+                    </div>
+                  </li>
+                ))
+              }
             </ul>
             <br /><hr />
             <div className="text-base flex justify-between my-5 font-semibold text-gray-900 dark:text-white">
               <span>Total</span>
-              <span>$320</span>
+              <span>${ total }</span>
             </div>
           </div>
         </div>

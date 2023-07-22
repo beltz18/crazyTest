@@ -48,6 +48,16 @@ class Cart {
     })
   }
 
+  async getCartData (user) {
+    const file = await jsonfile.readFile(this.file)
+      .then((res)  => { return res })
+      .catch((err) => { return new Error(this.err(err,500)) })
+
+    const userCartData = file.filter((cart) => cart.user === user)
+    if (userCartData.length == 0) return { message: 'No articles added yet', status: 200 }
+    return userCartData
+  }
+
   async removeFromCart () {
     const file = await jsonfile.readFile(this.file)
       .then((res)  => { return res })
