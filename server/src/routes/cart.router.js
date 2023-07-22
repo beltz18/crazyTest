@@ -1,12 +1,12 @@
 import { Router } from 'express'
 import Cart       from '../controllers/cart.controller.js'
+import axios      from 'axios'
 
 const cartRouter = Router()
 
 cartRouter.post('/cart/add', async (req,res) => {
   const { id, user } = req.body
-  const prod = await fetch(`http://localhost:4001/product/get/${id}`)
-    .then(res => res.json())
+  const prod = await (await axios.get(`http://localhost:4001/product/get/${id}`)).data
   prod['user'] = user
   const create = new Cart(prod)
   const resp   = await create.addToCart()
