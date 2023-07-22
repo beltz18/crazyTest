@@ -71,7 +71,7 @@ class Cart {
     return new Promise((resolve, reject) => {
       jsonfile.writeFile(this.file, file, { spaces: 2, EOL: '\r\n' })
         .then(() => {
-          resolve(this.msg('deleted from your cart', 201))
+          resolve(this.msg('deleted from your cart', 200))
         })
     })
   }

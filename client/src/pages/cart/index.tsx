@@ -1,4 +1,5 @@
 import '@s/main.css'
+import 'react-toastify/dist/ReactToastify.css'
 
 import React         from 'react'
 import MyHead        from '@c/MyHead'
@@ -18,7 +19,10 @@ const Cart = ({ email, access, items }: any) => {
         access={ access }
         page='cart'
       />
-      <MyCart items={ items } />
+      <MyCart
+        items={ items }
+        email={ email }
+      />
       <MyFooter font={ raleway } />
     </>
   )
