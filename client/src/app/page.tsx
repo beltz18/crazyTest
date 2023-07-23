@@ -1,15 +1,24 @@
 "use client"
 
 import '@s/main.css'
-import Link from 'next/link'
+import Link  from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
+  fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}`, { method: 'GET' })
+
   return (
     <>
       <div className='min-h-screen bg-gray-500 py-6 flex flex-col justify-center items-center xs:py-12'>
         <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <div className="flex flex-col items-center pb-10 px-8 pt-8">
-            <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src="/andi-dev-logo.png" alt="Bonnie image"/>
+            <Image
+              className="w-24 h-24 mb-3 rounded-full shadow-lg"
+              src="/andi-dev-logo.png"
+              alt="Andi Dev"
+              width="50"
+              height="50"
+            />
             <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Andi Dev</h5>
             <span className="text-gray-500 text-justify my-2 dark:text-gray-400">
               As a Full Stack Developer, I&apos;m responsible of designing and implementing
@@ -31,12 +40,4 @@ export default function Home() {
       </div>
     </>
   )
-}
-
-export async function getServerSideProps () {
-  await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}`)
-  
-  return {
-    props: {}
-  }
 }
