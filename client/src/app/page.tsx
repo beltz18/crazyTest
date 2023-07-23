@@ -32,3 +32,11 @@ export default function Home() {
     </>
   )
 }
+
+export async function getServerSideProps () {
+  await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}`)
+  
+  return {
+    props: {}
+  }
+}

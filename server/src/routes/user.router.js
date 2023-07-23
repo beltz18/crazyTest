@@ -4,6 +4,10 @@ import User       from '../controllers/user.controller.js'
 
 const userRouter = Router()
 
+userRouter.get('/', (req,res) => {
+  res.json({ message: "Welcome to API" })
+})
+
 userRouter.post('/user/register', async (req,res) => {
   const { user } = req.body
   user.password  = await bcrypt.hash(user.password, 10)
