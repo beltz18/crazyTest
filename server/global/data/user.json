@@ -5,5 +5,12 @@
     "email": "admin@admin.co",
     "password": "$2b$10$iLnSCgqImnMJhxZt8D0TGu0BngC.2pfIQm7a1QeHETbtHKR44nrA2",
     "access": "admin"
+  },
+  {
+    "id": "b9448a83-fda5-48f0-a444-e5ae61f64027",
+    "name": "Andi Montilla",
+    "email": "andi@andi.com",
+    "password": "$2b$10$wH6KTUEGe9E0gwOYy/dypOb4uK4DpvgiY1yFiF5vrMAKx7PRcMgXK",
+    "access": "user"
   }
 ]

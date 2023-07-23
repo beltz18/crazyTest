@@ -29,7 +29,7 @@ export default AdminDash
 
 export async function getServerSideProps ({ req }: any) {
   const token    = getCookie('token', req)
-  const email     = getCookie('email', req)
+  const email    = getCookie('email', req)
   const access   = getCookie('access', req)
 
   if (typeof token == 'undefined') {
@@ -37,6 +37,15 @@ export async function getServerSideProps ({ req }: any) {
       redirect: {
         destination: '/login',
         permanent: false,
+      }
+    }
+  }
+
+  if (access == 'user') {
+    return {
+      redirect: {
+        destination: '/dashboard',
+        permanent: false
       }
     }
   }
